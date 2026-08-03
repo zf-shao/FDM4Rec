@@ -15,3 +15,6 @@ Example for Beauty
  ```
 config = Config(model=FDM4Rec, config_file_list=['config/config.yaml'])
  ```
+
+## Acknowledgements
+Our code implementation is based on the [RecBole](https://github.com/RUCAIBox/RecBole) and [Pytorch](https://github.com/pytorch/pytorch) frameworks.
