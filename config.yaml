@@ -1,0 +1,57 @@
+seed: 2020
+gpu_id: '7' #7
+log_wandb: False
+
+# SASRec settings
+hidden_size: 64
+inner_size: 256
+n_layers: 2
+hidden_dropout_prob: 0.4
+layer_norm_eps: 1e-12
+initializer_range: 0.02
+loss_type: 'CE'                     # (str) Type of loss function. Range in ['BPR', 'CE'].
+
+
+freq_dropout_prob: 0.4          #其实就是dropout; 0.2 for ML-1M and kuairand; 0.4 for other datasets
+
+lambda_: 0.3                    #0.1 for Beauty and ML-1M; 
+
+
+d_state: 32                     # (int) SSM state expansion factor
+d_conv: 4                       # (int) Local convolution width
+expand: 2                        # (int) Block expansion factor
+dropout_prob: 0.4                #0.2 for ML-1M and kuairand; 0.4 for other datasets
+
+
+save_dataset: False
+
+#dataset settings
+dataset: amazon-beauty
+MAX_ITEM_LIST_LENGTH: 50      # 50 for Amazon datasets
+
+USER_ID_FIELD: user_id
+ITEM_ID_FIELD: item_id
+load_col:
+   inter: [user_id, item_id, timestamp]
+
+
+
+user_inter_num_interval: "[5,inf)"
+item_inter_num_interval: "[5,inf)"
+
+# training settings
+epochs: 300
+train_batch_size: 2048
+learner: adam
+learning_rate: 0.001
+eval_step: 1
+stopping_step: 10
+train_neg_sample_args: ~
+
+
+# evaluation settings
+metrics: ['Hit', 'NDCG']
+valid_metric: NDCG@10
+eval_batch_size: 4096
+weight_decay: 0.0
+topk: [10, 20, 50]
