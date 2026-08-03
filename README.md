@@ -11,6 +11,7 @@ Just run it directly：
 python main.py  
  ```
 
+Example for Beauty
  ```
 config = Config(model=FDM4Rec, config_file_list=['config/config.yaml'])
  ```
