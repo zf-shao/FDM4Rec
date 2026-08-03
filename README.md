@@ -10,3 +10,7 @@ Just run it directly：
  ```
 python main.py  
  ```
+
+ ```
+config = Config(model=FDM4Rec, config_file_list=['config/config.yaml'])
+ ```
